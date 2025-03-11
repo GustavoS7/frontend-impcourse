@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #3DCBB1;
+  --secondary: #FFD130;
+  --red40: #EC9792;
+  --red60: #E56D67;
+  --red80: #C42A22;
+  --red100: #98211A;
+  --black90: rgba(27, 27, 27, 0.9);
+  --black60: rgba(27, 27, 27, 0.6);
+  --black30: rgba(27, 27, 27, 0.1);
+  --white90: rgba(249, 249, 249, 0.9);
+  --white60: rgba(249, 249, 249, 0.6);
+  --white30: rgba(249, 249, 249, 0.3);
+  --error: #FE416D;
+  --warning: #A04AE3;
+  --success: #00DDC0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
