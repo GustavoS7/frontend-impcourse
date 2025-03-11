@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* @config "../../tailwind.config.js"; */
+@config "../../tailwind.config.js";
+
 
 :root {
   --primary: #3DCBB1;
