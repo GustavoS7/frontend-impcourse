@@ -3,6 +3,7 @@
 import { parseCookies, destroyCookie, setCookie } from 'nookies';
 import { createContext, useEffect, useState } from 'react';
 import { loginRequest, signUpRequest } from '@/service';
+import { useRouter } from 'next/navigation';
 import { api } from '@/service/lib/api';
 import Router from 'next/router';
 
@@ -44,6 +45,8 @@ export const AuthContext = createContext({} as IAuthContext);
 export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<User | null>(null);
 
+  const router = useRouter();
+
   const isAuthenticated = !!user;
 
   useEffect(() => {
@@ -84,7 +87,7 @@ export function AuthProvider({ children }: any) {
 
     setUser(data.user);
 
-    await Router.push('/');
+    await router.push('/');
   };
 
   const signUp = async ({ password, email, name }: TSignUpProps) => {
@@ -109,7 +112,7 @@ export function AuthProvider({ children }: any) {
 
     setUser(data.user);
 
-    await Router.push('/');
+    await router.push('/');
   };
 
   const returnMe = async () => {

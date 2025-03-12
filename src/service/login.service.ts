@@ -7,7 +7,7 @@ export type TLoginRequest = {
 
 export const loginRequest = async ({ password, email }: TLoginRequest) => {
   try {
-    const { data } = await api.post('/auth/login', {
+    const { data } = await api.post('/user/login', {
       password,
       email,
     });
