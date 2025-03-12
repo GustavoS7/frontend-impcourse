@@ -21,20 +21,20 @@ export function Navbar({ variant = 'primary' }: TNavbar) {
 
   return (
     <nav className={classname.container}>
-      <div>
+      <Link href="/home">
         <h1 className={classname.title}>ImpCourse</h1>
-      </div>
+      </Link>
       <div className="flex gap-10">
         <Link href="/sign-up">
           <p className="bg-primary p-1 text-lg text-white90 rounded-sm w-32 flex justify-center font-bold">
             Cadastrar
           </p>
         </Link>
-        <button>
+        <Link href="/login">
           <p className="p-1 text-lg text-primary border border-primary rounded-sm w-32 flex justify-center font-bold">
             Entrar
           </p>
-        </button>
+        </Link>
       </div>
     </nav>
   );
