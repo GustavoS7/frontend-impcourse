@@ -35,7 +35,7 @@ type TSignUpProps = z.infer<typeof signUpSchema>;
 export function SignUpForm() {
   const [error, setError] = useState<string>('');
 
-  const { login } = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
   const {
     register,
@@ -47,7 +47,7 @@ export function SignUpForm() {
 
   const handleSignUp = async (data: TSignUpProps) => {
     setError('');
-    const response = await login(data);
+    const response = await signUp(data);
     if (response?.error) {
       setError('Erro na criação de usuário, tente novamente mais tarde');
     }
