@@ -24,8 +24,8 @@ type TSignUpProps = {
 interface IAuthContext {
   isAuthenticated: boolean;
   user: User | null;
-  signUp: (data: TSignUpProps) => Promise<any>;
-  login: (data: TLoginProps) => Promise<any>;
+  signUp: (data: TSignUpProps) => Promise<{ error: boolean } | undefined>;
+  login: (data: TLoginProps) => Promise<{ error: boolean } | undefined>;
   returnMe: () => Promise<void>;
   signOut: () => void;
 }
