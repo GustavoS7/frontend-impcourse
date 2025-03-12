@@ -34,7 +34,7 @@ export function setupAPIClient(context: any = undefined) {
             isRefreshing = true;
 
             api
-              .post('/refreshToken', {
+              .post('/user/refreshToken', {
                 refreshToken,
               })
               .then((response) => {
