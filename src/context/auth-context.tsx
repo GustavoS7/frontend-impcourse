@@ -54,7 +54,7 @@ export function AuthProvider({ children }: any) {
 
     if (token) {
       api
-        .get('/returnMe')
+        .get('/user/me')
         .then((response) => {
           const { id, email, name } = response.data;
           setUser({ id, email, name });
@@ -120,7 +120,7 @@ export function AuthProvider({ children }: any) {
 
     if (token) {
       api
-        .get('/returnMe')
+        .get('/user/me')
         .then((response) => {
           const { id, email, name } = response.data;
           setUser({ id, email, name });
