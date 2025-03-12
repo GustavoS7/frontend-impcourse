@@ -1,3 +1,5 @@
+'use client';
+
 import { Navbar } from '@/components/navbar';
 import { LoginForm } from './components';
 import Link from 'next/link';
