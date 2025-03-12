@@ -1,8 +1,10 @@
+'use client';
+
 import { Navbar } from '@/components/navbar';
-import { SignUpForm } from './components';
+import { LoginForm } from './components';
 import Link from 'next/link';
 
-export default function SignUp() {
+export default function Login() {
   return (
     <div>
       <Navbar variant="secondary" />
@@ -10,7 +12,7 @@ export default function SignUp() {
       <div className="flex flex-col lg:flex-row gap-10 justify-center container mx-auto my-10 items-center">
         <div className="max-w-sm md:max-w-none w-full md:w-1/2">
           <img
-            src="/sign-up-cover.svg"
+            src="/login-cover.svg"
             alt="Menina com computador e planilhas"
             className=" lg:w-full"
           />
@@ -24,15 +26,15 @@ export default function SignUp() {
               dados seguros.
             </p>
 
-            <SignUpForm />
+            <LoginForm />
 
             <p>
-              <span className="text-black60">Já possui uma conta? </span>
+              <span className="text-black60">Não possui uma conta? </span>
               <Link
-                href="/login"
+                href="/sign-up"
                 className="text-primary font-bold hover:underline"
               >
-                Clique para entrar
+                Clique para se cadastrar
               </Link>
             </p>
           </div>
