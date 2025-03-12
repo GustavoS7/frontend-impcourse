@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/navbar';
-import { GetServerSideProps } from 'next';
+// import { GetServerSideProps } from 'next';
 import { SignUpForm } from './components';
-import { withSSRGuest } from '@/utils';
+// import { withSSRGuest } from '@/utils';
 import Link from 'next/link';
 
 export default function SignUp() {
@@ -44,8 +44,8 @@ export default function SignUp() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = withSSRGuest<any>(
-  async () => {
-    return { props: {} };
-  },
-);
+// export const getServerSideProps: GetServerSideProps = withSSRGuest<any>(
+//   async () => {
+//     return { props: {} };
+//   },
+// );
