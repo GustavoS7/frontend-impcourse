@@ -16,7 +16,7 @@ export function UserBox() {
       </div>
 
       <div className="opacity-0 scale-95 invisible group-hover:visible group-hover:opacity-100 group-hover:scale-100 transition-opacity transition-transform duration-300 absolute right-0 top-full pt-2 ">
-        <ul className="rounded-md px-4 py-2 bg-white border border-gray-300 shadow-md text-black90">
+        <ul className="rounded-md px-4 py-2 bg-white90 border shadow-md text-black90">
           <li className="font-bold">{user?.name}</li>
           <li className="text-xs text-black60">{user?.email}</li>
           <hr className="text-black30 my-4" />
