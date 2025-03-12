@@ -1,7 +1,7 @@
 import { parseCookies, setCookie } from 'nookies';
 import { signOut } from '@/context/auth-context';
-import axios, { AxiosError } from 'axios';
 import { AuthTokenError } from '../errors';
+import axios, { AxiosError } from 'axios';
 
 let isRefreshing = false;
 let failedRequestsQueue: any = [];
