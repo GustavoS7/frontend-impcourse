@@ -1,4 +1,9 @@
+'use client';
+
+import { AuthContext } from '@/context/auth-context';
+import { useContext } from 'react';
 import Link from 'next/link';
+import { UserBox } from './user-box';
 
 type TNavbar = {
   variant?: 'primary' | 'secondary';
@@ -19,22 +24,30 @@ export function Navbar({ variant = 'primary' }: TNavbar) {
     classname.title = 'text-primary font-bold text-2xl';
   }
 
+  const { user } = useContext(AuthContext);
+
   return (
     <nav className={classname.container}>
       <Link href="/home">
         <h1 className={classname.title}>ImpCourse</h1>
       </Link>
       <div className="flex gap-10">
-        <Link href="/sign-up">
-          <p className="bg-primary p-1 text-lg text-white90 rounded-sm w-32 flex justify-center font-bold">
-            Cadastrar
-          </p>
-        </Link>
-        <Link href="/login">
-          <p className="p-1 text-lg text-primary border border-primary rounded-sm w-32 flex justify-center font-bold">
-            Entrar
-          </p>
-        </Link>
+        {user ? (
+          <UserBox />
+        ) : (
+          <>
+            <Link href="/sign-up">
+              <p className="bg-primary p-1 text-lg text-white90 rounded-sm w-32 flex justify-center font-bold">
+                Cadastrar
+              </p>
+            </Link>
+            <Link href="/login">
+              <p className="p-1 text-lg text-primary border border-primary rounded-sm w-32 flex justify-center font-bold">
+                Entrar
+              </p>
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
