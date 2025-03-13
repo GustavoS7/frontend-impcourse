@@ -5,7 +5,6 @@ import { createContext, useEffect, useState } from 'react';
 import { loginRequest, signUpRequest } from '@/service';
 import { useRouter } from 'next/navigation';
 import { api } from '@/service/lib/api';
-import Router from 'next/router';
 
 type User = {
   email: string;
@@ -37,7 +36,9 @@ export const signOut = async () => {
   destroyCookie(undefined, 'nextauth.token');
   destroyCookie(undefined, 'nextauth.refreshToken');
 
-  await Router.push(process.env.NEXT_PUBLIC_API_URL_FRONT_END + '/login');
+  if (typeof window !== 'undefined') {
+    window.location.href = '/';
+  }
 };
 
 export const AuthContext = createContext({} as IAuthContext);

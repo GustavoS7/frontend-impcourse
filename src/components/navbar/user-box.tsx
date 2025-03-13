@@ -4,7 +4,7 @@ import { AuthContext } from '@/context/auth-context';
 import { useContext } from 'react';
 
 export function UserBox() {
-  const { user } = useContext(AuthContext);
+  const { user, signOut } = useContext(AuthContext);
 
   return (
     <div className="p-1 text-xl text-white90 bg-primary border border-primary rounded-sm w-44 flex gap-3 justify-center font-bold group relative">
@@ -20,7 +20,12 @@ export function UserBox() {
           <li className="font-bold">{user?.name}</li>
           <li className="text-xs text-black60">{user?.email}</li>
           <hr className="text-black30 my-4" />
-          <li className="text-red40 hover:underline">Sair da conta</li>
+          <li
+            className="text-red40 hover:underline"
+            onClick={signOut}
+          >
+            Sair da conta
+          </li>
         </ul>
       </div>
     </div>
