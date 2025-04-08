@@ -2,6 +2,7 @@
 
 import { AuthContext } from '@/context/auth-context';
 import { useContext } from 'react';
+import Link from 'next/link';
 
 export function UserBox() {
   const { user, signOut } = useContext(AuthContext);
@@ -19,6 +20,13 @@ export function UserBox() {
         <ul className="rounded-md px-4 py-2 bg-white90 border shadow-md text-black90">
           <li className="font-bold">{user?.name}</li>
           <li className="text-xs text-black60">{user?.email}</li>
+          <hr className="text-black30 my-4" />
+
+          <li className="text-base">Área Instrutor</li>
+          <li className="text-sm text-black60">
+            <Link href="/curso/cadastrar">Cadastrar curso</Link>
+          </li>
+
           <hr className="text-black30 my-4" />
           <li
             className="text-red40 hover:underline"
