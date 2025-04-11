@@ -4,6 +4,7 @@ import { Input, MoneyInput, Select, Textarea } from '@/components/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { cadastrarCursoRequest } from '@/service';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { z } from 'zod';
 
@@ -33,6 +34,8 @@ type TCadastrarCursoProps = z.infer<typeof cadastrarCursoSchema>;
 export function CadastrarCursoForm() {
   const [error, setError] = useState<string>('');
 
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -42,18 +45,21 @@ export function CadastrarCursoForm() {
     resolver: zodResolver(cadastrarCursoSchema),
   });
 
-  const handleLogin = async (data: TCadastrarCursoProps) => {
+  const handleCadastrarCurso = async (data: TCadastrarCursoProps) => {
     setError('');
     const response = await cadastrarCursoRequest(data);
     if (response?.error) {
-      setError('Erro na autenticação, tente novamente mais tarde');
+      setError('Erro na criação, tente novamente mais tarde');
+    } else {
+      const { id } = response;
+      await router.push('/curso/' + id);
     }
   };
 
   return (
     <form
       className="flex flex-col gap-4 w-full"
-      onSubmit={handleSubmit(handleLogin)}
+      onSubmit={handleSubmit(handleCadastrarCurso)}
     >
       <div className="flex flex-col gap-1">
         <label htmlFor="title">Título</label>
