@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { error } from 'console';
 import { api } from './lib/api';
 
 export type TCadastrarCursoRequest = {
