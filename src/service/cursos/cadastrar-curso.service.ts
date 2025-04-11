@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { api } from './lib/api';
+import { api } from '../lib/api';
 
 export type TCadastrarCursoRequest = {
   title: string;

@@ -1,3 +1,5 @@
+'use client';
+
 import { CadastrarCursoForm } from './components';
 import { Navbar } from '@/components/navbar';
 

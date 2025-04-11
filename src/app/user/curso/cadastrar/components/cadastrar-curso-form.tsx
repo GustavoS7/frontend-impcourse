@@ -3,8 +3,8 @@
 import { Input, MoneyInput, Select, Textarea } from '@/components/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { cadastrarCursoRequest } from '@/service';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { z } from 'zod';
 

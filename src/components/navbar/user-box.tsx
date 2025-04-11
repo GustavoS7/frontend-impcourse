@@ -18,13 +18,16 @@ export function UserBox() {
 
       <div className="opacity-0 scale-95 invisible group-hover:visible group-hover:opacity-100 group-hover:scale-100 transition-opacity transition-transform duration-300 absolute right-0 top-full pt-2 ">
         <ul className="rounded-md px-4 py-2 bg-white90 border shadow-md text-black90">
-          <li className="font-bold">{user?.name}</li>
+          <li className="font-bold text-success">{user?.name}</li>
           <li className="text-xs text-black60">{user?.email}</li>
           <hr className="text-black30 my-4" />
 
-          <li className="text-base">Área Instrutor</li>
+          <li className="text-lg text-success">Área Instrutor</li>
+          <li className="text-base text-black90 underline">
+            <Link href="/user/curso">Cursos</Link>
+          </li>
           <li className="text-sm text-black60">
-            <Link href="/curso/cadastrar">Cadastrar curso</Link>
+            <Link href="/user/curso/cadastrar">Cadastrar curso</Link>
           </li>
 
           <hr className="text-black30 my-4" />
