@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { error } from 'console';
 import { api } from './lib/api';
 
 export type TCadastrarCursoRequest = {
@@ -22,12 +23,11 @@ export const cadastrarCursoRequest = async ({
       description,
     });
 
-    const { accessToken, refreshToken, ...user } = data;
+    const { id } = data;
 
     return {
-      accessToken,
-      refreshToken,
-      user,
+      id,
+      error: false,
     };
   } catch (_) {
     return {
