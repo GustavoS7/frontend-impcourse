@@ -28,7 +28,7 @@ export const cadastrarCursoRequest = async ({
       },
       {
         headers: {
-          'Content-Type': 'multipart/data-form',
+          'Content-Type': 'multipart/form-data',
         },
       },
     );
