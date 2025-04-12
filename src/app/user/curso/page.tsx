@@ -3,16 +3,19 @@
 import { _listarCursosAutorRequest } from '@/service/cursos';
 import { Navbar } from '@/components/navbar';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { TCourse } from '@/core/entities';
 
-export default async function Curso() {
-  // const cursos = await _listarCursosAutorRequest();
-
-  // console.log(cursos);
+export default function Curso() {
+  const [cursos, setCursos] = useState<TCourse[] | null>([]);
 
   const listarCursosAutor = async () => {
     const response = await _listarCursosAutorRequest();
-    console.log(response);
+    if (response.error) {
+      setCursos(null);
+    } else {
+      setCursos(response.cursos);
+    }
   };
 
   useEffect(() => {

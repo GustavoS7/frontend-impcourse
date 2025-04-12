@@ -6,6 +6,7 @@ export type TCadastrarCursoRequest = {
   price: number;
   category: string;
   description: string;
+  file: File;
 };
 
 export const cadastrarCursoRequest = async ({
@@ -13,14 +14,24 @@ export const cadastrarCursoRequest = async ({
   price,
   category,
   description,
+  file,
 }: TCadastrarCursoRequest) => {
   try {
-    const { data } = await api.post('/course/cadastro', {
-      title,
-      price,
-      category,
-      description,
-    });
+    const { data } = await api.post(
+      '/course/cadastro',
+      {
+        title,
+        price,
+        category,
+        description,
+        file,
+      },
+      {
+        headers: {
+          'Content-Type': 'multipart/data-form',
+        },
+      },
+    );
 
     const { id } = data;
 
