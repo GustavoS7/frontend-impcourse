@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { _cadastrarCursoRequest } from '@/service';
+import { _cadastrarAulaRequest } from '@/service';
 import { Input, Textarea } from '@/components/ui';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -16,14 +16,6 @@ const cadastrarAulaSchema = z.object({
       invalid_type_error: 'Título precisa ser especificado',
     })
     .min(3, { message: 'Título precisa ter no mínimo 3 letras' }),
-  price: z.number({
-    required_error: 'Preço precisa ser especificado',
-    invalid_type_error: 'Preço precisa ser especificado',
-  }),
-  category: z.string({
-    required_error: 'Categoria precisa ser especificado',
-    invalid_type_error: 'Categoria precisa ser especificado',
-  }),
   description: z.string({
     required_error: 'Categoria precisa ser especificado',
     invalid_type_error: 'Categoria precisa ser especificado',
@@ -35,9 +27,7 @@ const cadastrarAulaSchema = z.object({
       const allowedTypes = ['image/jpeg', 'image/png', 'video/mp4'];
       const maxSizeInBytes = 50 * 1024 * 1024;
 
-      return (
-        allowedTypes.includes(file.mimetype) && file.size <= maxSizeInBytes
-      );
+      return allowedTypes.includes(file.type) && file.size <= maxSizeInBytes;
     },
     {
       message: 'Arquivo inválido. Formato ou tamanho não permitido.',
@@ -47,7 +37,11 @@ const cadastrarAulaSchema = z.object({
 
 type TCadastrarAulaInput = z.infer<typeof cadastrarAulaSchema>;
 
-export function CadastrarAulaForm() {
+type TCadastrarAulaFormProps = {
+  courseId: string;
+};
+
+export function CadastrarAulaForm({ courseId }: TCadastrarAulaFormProps) {
   const [error, setError] = useState<string>('');
 
   const router = useRouter();
@@ -63,12 +57,14 @@ export function CadastrarAulaForm() {
 
   const handleCadastrarAula = async (data: TCadastrarAulaInput) => {
     setError('');
-    const response = await _cadastrarCursoRequest(data);
+    const response = await _cadastrarAulaRequest({
+      ...data,
+      courseId,
+    });
     if (response?.error) {
       setError('Erro na criação, tente novamente mais tarde');
     } else {
-      const { id } = response;
-      await router.push('/user/curso/instrutor' + id);
+      await router.push('/user/curso/' + courseId);
     }
   };
 
@@ -78,6 +74,9 @@ export function CadastrarAulaForm() {
       onSubmit={handleSubmit(handleCadastrarAula)}
     >
       <AulaInput setValue={setValue} />
+      {errors?.file?.message && (
+        <span className="text-xs text-error">{errors?.file?.message}</span>
+      )}
 
       <div className="flex flex-col gap-1 w-full">
         <label htmlFor="title">Título</label>

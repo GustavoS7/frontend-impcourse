@@ -5,12 +5,14 @@ export type TCadastrarAulaRequest = {
   title: string;
   description: string;
   file: File;
+  courseId: string;
 };
 
 export const _cadastrarAulaRequest = async ({
   title,
   description,
   file,
+  courseId,
 }: TCadastrarAulaRequest) => {
   try {
     const { data } = await api.post(
@@ -19,6 +21,7 @@ export const _cadastrarAulaRequest = async ({
         title,
         description,
         file,
+        courseId,
       },
       {
         headers: {
