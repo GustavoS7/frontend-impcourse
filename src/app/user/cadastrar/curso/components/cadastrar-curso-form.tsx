@@ -2,7 +2,7 @@
 
 import { Input, MoneyInput, Select, Textarea } from '@/components/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { cadastrarCursoRequest } from '@/service';
+import { _cadastrarCursoRequest } from '@/service';
 import { useRouter } from 'next/navigation';
 import { CoverInput } from './cover-input';
 import { useForm } from 'react-hook-form';
@@ -62,7 +62,7 @@ export function CadastrarCursoForm() {
 
   const handleCadastrarCurso = async (data: TCadastrarCursoProps) => {
     setError('');
-    const response = await cadastrarCursoRequest(data);
+    const response = await _cadastrarCursoRequest(data);
     if (response?.error) {
       setError('Erro na criação, tente novamente mais tarde');
     } else {

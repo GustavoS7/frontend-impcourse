@@ -15,14 +15,6 @@ export default function CadastrarCurso() {
               Cadastrar novo curso
             </p>
 
-            {/* <div className="max-w-xs md:max-w-none w-full md:w-1/2">
-              <img
-                src="/cadastrar-curso-cover.svg"
-                alt="Menina com computador e planilhas"
-                className=" lg:w-full"
-              />
-            </div> */}
-
             <CadastrarCursoForm />
           </div>
         </div>

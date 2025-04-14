@@ -24,10 +24,10 @@ export function UserBox() {
 
           <li className="text-lg text-success">Área Instrutor</li>
           <li className="text-base text-black90 underline">
-            <Link href="/user/curso">Cursos</Link>
+            <Link href="/user/cursos">Cursos</Link>
           </li>
           <li className="text-sm text-black60">
-            <Link href="/user/curso/cadastrar">Cadastrar curso</Link>
+            <Link href="/user/cadastrar/curso">Cadastrar curso</Link>
           </li>
 
           <hr className="text-black30 my-4" />

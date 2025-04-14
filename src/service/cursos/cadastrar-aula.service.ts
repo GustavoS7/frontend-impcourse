@@ -1,28 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { api } from '../lib/api';
 
-export type TCadastrarCursoRequest = {
+export type TCadastrarAulaRequest = {
   title: string;
-  price: number;
-  category: string;
   description: string;
-  file?: File;
+  file: File;
 };
 
-export const _cadastrarCursoRequest = async ({
+export const _cadastrarAulaRequest = async ({
   title,
-  price,
-  category,
   description,
   file,
-}: TCadastrarCursoRequest) => {
+}: TCadastrarAulaRequest) => {
   try {
     const { data } = await api.post(
-      '/course/cadastro',
+      '/content/cadastro',
       {
         title,
-        price,
-        category,
         description,
         file,
       },
