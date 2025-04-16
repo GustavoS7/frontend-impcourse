@@ -67,7 +67,7 @@ export function CadastrarCursoForm() {
       setError('Erro na criação, tente novamente mais tarde');
     } else {
       const { id } = response;
-      await router.push('/curso/' + id);
+      await router.push('/user/curso/' + id);
     }
   };
 

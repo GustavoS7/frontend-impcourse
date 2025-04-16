@@ -30,7 +30,7 @@ export function CoverInput({ setValue }: TCoverInputProps) {
     >
       <input
         type="file"
-        accept="image/png, image/jpg"
+        accept="image/png, image/jpeg"
         hidden
         name="file"
         id="file"
