@@ -5,6 +5,7 @@ import { _listarCursosRequest } from '@/service';
 import { TCourseInfo } from '@/core/entities';
 import { Navbar } from '@/components/navbar';
 import { useEffect, useState } from 'react';
+import Filtro from './components/filtro';
 
 export default function Home() {
   const [cursos, setCursos] = useState<TCourseInfo[] | null>([]);
@@ -27,6 +28,8 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+
+      <Filtro setCursos={setCursos} />
 
       <CursoContainer cursos={cursos} />
     </div>
