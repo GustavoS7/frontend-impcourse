@@ -7,6 +7,7 @@ import { TCourseInfo } from '@/core/entities';
 import { Navbar } from '@/components/navbar';
 import { useEffect, useState } from 'react';
 import { formatCurrency } from '@/helper';
+import Link from 'next/link';
 
 export default function Page() {
   const [hasUserPurchased, setHasUserPurchased] = useState<boolean>(false);
@@ -79,9 +80,12 @@ export default function Page() {
                 Comprar
               </button>
             ) : (
-              <button className="w-full text-2xl font-bold rounded-md py-1 text-white90 bg-primary">
+              <Link
+                className="w-full text-2xl font-bold rounded-md py-1 text-white90 bg-primary"
+                href={`/user/acessar/${id}`}
+              >
                 Ir para curso
-              </button>
+              </Link>
             )}
 
             <div className="text-lg text-black60">

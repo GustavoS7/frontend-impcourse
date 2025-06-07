@@ -24,10 +24,10 @@ export function CardCurso({ curso }: TCardCurso) {
         </div>
 
         <Link
-          href={`/user/curso/${curso.id}/`}
+          href={`/user/acessar/${curso.id}/`}
           className="w-full text-center p-1 bg-primary text-white rounded-md"
         >
-          Editar
+          Acessar
         </Link>
       </div>
     </div>

@@ -36,7 +36,6 @@ export function LoginForm() {
   });
 
   const handleLogin = async (data: TLoginProps) => {
-    console.log(data);
     setError('');
     const response = await login(data);
     if (response?.error) {

@@ -38,9 +38,9 @@ export default function Curso() {
           </>
         ) : (
           <>
-            {cursos.map((el) => (
+            {cursos.map((el: any) => (
               <CardCurso
-                curso={el}
+                curso={el.course}
                 key={el.id}
               />
             ))}
